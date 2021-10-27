@@ -1,34 +1,42 @@
+const main = () => {
+  fetchUserInfo('taichi-private')
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
 const fetchUserInfo = (useId) => {  
   fetch(`https://api.github.com/users/${encodeURIComponent(useId)}`)
     .then(response => {
-      if (response.ok) {
-        console.log(response.status);
-  
-        response.json().then(userInfo => {
-          console.log(userInfo, 222);
-
-          const view = escapeHTML`
-            <h4>${userInfo.name} (@${userInfo.login})</h4>
-            <img src="${userInfo.avatar_url}" alt="${userInfo.login}" height="100">
-            <dl>
-                <dt>Location</dt>
-                <dd>${userInfo.location}</dd>
-                <dt>Repositories</dt>
-                <dd>${userInfo.public_repos}</dd>
-            </dl>
-          `;
-
-          const result = document.getElementById("result");
-          result.innerHTML = view;
-        });
+      if (!response.ok) {
+        return Promise.reject(new Error(`${response.status}: ${response.statusText}`));
       } else {
-        console.error("error response", response);
+        return response.json().then(userInfo => {
+          const view = createView(userInfo);
+          displayView(view);
+        });
       }
-    })
-    .catch(err => {
-      console.log(err);
     });
-}
+};
+
+const createView = (userInfo) => {
+  return escapeHTML`
+    <h4>${userInfo.name} (@${userInfo.login})</h4>
+    <img src="${userInfo.avatar_url}" alt="${userInfo.login}" height="100">
+    <dl>
+        <dt>Location</dt>
+        <dd>${userInfo.location}</dd>
+        <dt>Repositories</dt>
+        <dd>${userInfo.public_repos}</dd>
+    </dl>
+  `;
+};
+
+const displayView = (view) => {
+  const result = document.getElementById("result");
+  result.innerHTML = view;
+};
+
 
 const escapeSpecialChars = (str) => {
   return str
@@ -37,7 +45,7 @@ const escapeSpecialChars = (str) => {
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
-}
+};
 
 const escapeHTML = (strings, ...values) => {
   return strings.reduce((result, str, i) => {
@@ -49,4 +57,4 @@ const escapeHTML = (strings, ...values) => {
       return result + String(value) + str;
     }
   })
-}
+};
