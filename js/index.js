@@ -1,20 +1,21 @@
-const main = () => {
-  fetchUserInfo('taichi-private')
-    .catch((err) => {
-      console.error(err);
-    });
+const main = async () => {
+  try {
+    const userId = getUserId();
+    const userInfo = await fetchUserInfo(userId);
+    const view = createView(userInfo);
+    displayView(view);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-const fetchUserInfo = (useId) => {  
-  fetch(`https://api.github.com/users/${encodeURIComponent(useId)}`)
+const fetchUserInfo = (userId) => {  
+  return fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
     .then(response => {
       if (!response.ok) {
         return Promise.reject(new Error(`${response.status}: ${response.statusText}`));
       } else {
-        return response.json().then(userInfo => {
-          const view = createView(userInfo);
-          displayView(view);
-        });
+        return response.json();
       }
     });
 };
@@ -37,6 +38,9 @@ const displayView = (view) => {
   result.innerHTML = view;
 };
 
+const getUserId = () => {
+  return document.getElementById("userId").value;
+}
 
 const escapeSpecialChars = (str) => {
   return str
