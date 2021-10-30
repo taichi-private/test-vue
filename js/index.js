@@ -1,1 +1,3 @@
-$('.slick01').slick();
+$('.slick01').slick({
+  lazyLoad: 'ondemand',
+});

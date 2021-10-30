@@ -6,6 +6,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.10.0/lazyload.min.js"></script>
+    <script>
+      new LazyLoad({
+        elements_selector: ".lazy",
+        to_webp:true
+      });
+    </script>
+    <script src="https://cdn.rawgit.com/scottjehl/picturefill/3.0.2/dist/picturefill.min.js"></script>
   </head>
   <body>
 
@@ -19,13 +28,13 @@
       <li>
         <picture>
           <source type="image/webp" srcset="./img/sample2.webp" />
-          <img alt="画像2" src="./img/sample2.jpg" />
+          <img class="lazy" alt="画像2" src="./img/sample2.jpg" />
         </picture>
       </li>
       <li>
         <picture>
           <source type="image/webp" srcset="./img/sample3.webp" />
-          <img alt="画像3" src="./img/sample3.jpg" />
+          <img class="lazy" alt="画像3" src="./img/sample3.jpg" />
         </picture>
       </li>
     </ul>
