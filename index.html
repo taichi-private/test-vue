@@ -2,14 +2,33 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>Ajax Example</title>
+    <title>slick slider</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
   <body>
-    <h2>GitHub User Info</h2>
 
-    <input id="userId" type="text" />
-    <button onClick="main()">fetch user info</button>
-    <div id="result"></div>
+    <ul class="slick01">
+      <li>
+        <picture>
+          <source type="image/webp" srcset="./img/sample1.webp" />
+          <img alt="画像1" src="./img/sample1.jpg" />
+        </picture>
+      </li>
+      <li>
+        <picture>
+          <source type="image/webp" srcset="./img/sample2.webp" />
+          <img alt="画像2" src="./img/sample2.jpg" />
+        </picture>
+      </li>
+      <li>
+        <picture>
+          <source type="image/webp" srcset="./img/sample3.webp" />
+          <img alt="画像3" src="./img/sample3.jpg" />
+        </picture>
+      </li>
+    </ul>
 
     <script src="js/index.js"></script>
   </body>
