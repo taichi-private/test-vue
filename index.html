@@ -2,48 +2,34 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <title>slick slider</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <title>flex</title>
+    <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
+    <section class="l-container l-container--360">
+      <div class="flexbox">
+        <div class="flexbox__item">アイテム1</div>
+        <div class="flexbox__content">アイテム2</div>
+      </div>
+    </section>
+    <section class="l-container l-container--600">
+      <div class="flexbox">
+        <div class="flexbox__item">アイテム1</div>
+        <div class="flexbox__content">アイテム2</div>
+      </div>
+    </section>
+    <section class="l-container l-container--1000">
+      <div class="flexbox">
+        <div class="flexbox__item">アイテム1</div>
+        <div class="flexbox__content">アイテム2</div>
+      </div>
+    </section>
 
-    <ul class="slick01">
-      <li>
-        <picture>
-          <source type="image/webp" data-srcset="./img/sample1.webp" />
-          <img alt="画像1" class="lazyload" data-src="./img/sample1.jpg" loading="lazy" />
-        </picture>
-      </li>
-      <li>
-        <picture>
-          <source type="image/webp" data-srcset="./img/sample2.webp" />
-          <img alt="画像2" class="lazyload" data-src="./img/sample2.jpg" loading="lazy" />
-        </picture>
-      </li>
-      <li>
-        <picture>
-          <source type="image/webp" data-srcset="./img/sample3.webp" />
-          <img alt="画像3" class="lazyload" data-src="./img/sample3.jpg" loading="lazy" />
-        </picture>
-      </li>
-      <li>
-        <picture>
-          <source type="image/webp" data-srcset="./img/sample4.webp" />
-          <img alt="画像2" class="lazyload" data-src="./img/sample4.jpg" loading="lazy" />
-        </picture>
-      </li>
-      <li>
-        <picture>
-          <source type="image/webp" data-srcset="./img/sample5.webp" />
-          <img alt="画像3" class="lazyload" data-src="./img/sample5.jpg" loading="lazy" />
-        </picture>
-      </li>
-    </ul>
-
-
-    <script src="js/index.js"></script>
-    <script src="js/lazysizes.min.js" async=""></script>
+    <section>
+      <div class="flexbox">
+        <div class="flexbox__item">アイテム1</div>
+        <div class="flexbox__content">アイテム2</div>
+      </div>
+    </section>
   </body>
 </html>
